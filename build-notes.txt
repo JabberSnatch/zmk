@@ -1,0 +1,8 @@
+export PATH=~/.local/bin:"$PATH"
+export PATH=~/.local/opt/cmake-3.29.2-linux-x86_64/bin:"$PATH"
+
+west build -d build/left -b nice_nano_v2 -- -DSHIELD=sofle_left
+west build -d build/right -b nice_nano_v2 -- -DSHIELD=sofle_right
+
+dmesg to find which dev is the keyboard
+sudo bash -c "cat build/left/zephyr/zmk.uf2 > /dev/sdc"
